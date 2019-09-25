@@ -17,7 +17,12 @@ class ImageLazyLoad {
     console.log(settings)
     // console.log(456)
 
+    // Object.assign是第一层深拷贝，后面层浅拷贝
     // this.settings = Object.assign(settings, options)
+    this.settings = {
+      ...settings,
+      ...options
+    }
     // this.loadStart.apply(this)
   }
 }
