@@ -1,0 +1,17 @@
+{
+  "presets": [
+    [
+      "@babel/preset-env", {
+        "targets": {
+          "chrome": "70",
+          "ie": "11"
+        },
+        "useBuiltIns": "usage",
+        "corejs": 3
+      }
+    ]
+  ],
+  "plugins": [
+    "@babel/plugin-syntax-dynamic-import"
+  ]
+}
