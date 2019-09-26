@@ -25,6 +25,9 @@ const config = {
     app: path.join(__dirname, '../src/index.js')
   },
   output: {
+    libraryTarget: 'umd',
+    libraryExport: 'default',
+    library: 'ImageLazyload',
     filename: 'image-lazyload.js',
     path: path.join(__dirname, '../dist')
     // publicPath: 'http://127.0.0.1:8000/public/'
