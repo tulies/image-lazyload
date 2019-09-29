@@ -15,15 +15,20 @@
 </head>
 <body>
   <div id="imgs-area">
-    <div><img src="../assets/imgs/1.jpg" /></div>
-    <div><img src="../assets/imgs/2.jpg" /></div>
-    <div><img src="../assets/imgs/3.jpg" /></div>
-    <div><img src="../assets/imgs/4.jpg" /></div>
-    <div><img src="../assets/imgs/5.jpg" /></div>
-    <div><img src="../assets/imgs/6.jpg" /></div>
+    <div><img data-src="../assets/imgs/1.jpg" /></div>
+    <div><img data-src="../assets/imgs/2.jpg" /></div>
+    <div><img data-src="../assets/imgs/3.jpg" /></div>
+    <div><img data-src="../assets/imgs/4.jpg" /></div>
+    <div><img data-src="../assets/imgs/5.jpg" /></div>
+    <div><img data-src="../assets/imgs/6.jpg" /></div>
   </div>
 </body>
 <script>
-var imageLazyload = new ImageLazyload('#imgs-area img',{})
+var imageLazyload = new ImageLazyload('#imgs-area img',{
+  loaded:function(e){
+    console.log(this)
+    console.log(e.loaded)
+  }
+})
 </script>
 </html>
