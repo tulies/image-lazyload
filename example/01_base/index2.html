@@ -6,53 +6,12 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>base</title>
   <style>
-      html, body {
-        position: relative;
-        height: 100%;
-      }
-      body {
-        background: #000;
-        font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
-        font-size: 14px;
-        color:#000;
-        margin: 0;
-        padding: 0;
-      }
-      .swiper-container {
-        width: 100%;
-        height: 100%;
-      }
-      .swiper-slide {
-        text-align: center;
-        font-size: 18px;
-        background: #000;
-
-      }
-      .swiper-slide img {
-        width: auto;
-        height: auto;
-        max-width: 100%;
-        max-height: 100%;
-        -ms-transform: translate(-50%, -50%);
-        -webkit-transform: translate(-50%, -50%);
-        -moz-transform: translate(-50%, -50%);
-        transform: translate(-50%, -50%);
-        position: absolute;
-        left: 50%;
-        top: 50%;
-      }
-    </style>
-  <style>
   #imgs-area img{
     width: 100%;
     height: 180px;
   }
   </style>
-  <link rel="stylesheet" href="../../node_modules/swiper/css/swiper.css">
-
-  <script src="../../dist/image-lazyload.js"></script>
-  <script src="../../node_modules/swiper/js/swiper.js"></script>
-
+  <script src="../../node_modules/lazyload/lazyload.js"></script>
 </head>
 <body>
     <button onclick="document.getElementById('div1').style.display = 'block';document.getElementById('div2').style.display = 'none';">1111</button>
@@ -80,65 +39,9 @@
           <div><img data-src="http://tp.nty.tv189.com/image/tmpl/2019/08/21/7008262790.jpg" src="http://tp.nty.tv189.com/h5/mainsite/projects/csite/tysx/site/index/img/base/h_original.png" /></div>
       </div>
     </div>
-
-
-      <!-- Swiper -->
-  <div class="swiper-container">
-      <div class="swiper-wrapper">
-        <div class="swiper-slide">
-          <!-- Required swiper-lazy class and image source specified in data-src attribute -->
-          <img data-src="http://tp.nty.tv189.com/image/tmpl/2019/09/26/7008311075.jpg" >
-          <!-- Preloader image -->
-        </div>
-        <div class="swiper-slide">
-          <img data-src="http://tp.nty.tv189.com/image/tmpl/2019/05/14/7008121525.jpg" >
-        </div>
-        <div class="swiper-slide">
-          <img data-src="http://tp.nty.tv189.com/image/tmpl/2019/09/29/7008314719.jpg">
-        </div>
-        <div class="swiper-slide">
-          <img data-src="http://tp.nty.tv189.com/image/tmpl/2019/08/29/7008272834.jpg" >
-        </div>
-        <div class="swiper-slide">
-          <img data-src="http://tp.nty.tv189.com/image/tmpl/2019/06/04/7008154811.jpg">
-        </div>
-        <div class="swiper-slide">
-          <img data-src="http://tp.nty.tv189.com/image/tmpl/2019/09/30/7008316345.jpg">
-        </div>
-
-      </div>
-      <!-- Add Pagination -->
-      <div class="swiper-pagination swiper-pagination-white"></div>
-      <!-- Navigation -->
-      <div class="swiper-button-next swiper-button-white"></div>
-      <div class="swiper-button-prev swiper-button-white"></div>
-    </div>
 </body>
 <script>
 let images = document.querySelectorAll("#imgs-area img");
-new ImageLazyload("#imgs-area img",{
-  threshold: 0
-});
-
-
-var swiper = new Swiper('.swiper-container', {
-      // Enable lazy loading
-      // lazy: true,
-      pagination: {
-        el: '.swiper-pagination',
-        clickable: true,
-      },
-      navigation: {
-        nextEl: '.swiper-button-next',
-        prevEl: '.swiper-button-prev',
-      },
-
-    });
-
-  new ImageLazyload(".swiper-container img",{
-    threshold: 0,
-    rootMargin: "1000px",
-
-  });
+lazyload(images);
 </script>
 </html>
