@@ -16,7 +16,6 @@ const extend = function () {
     deep = arguments[0]
     i++
   }
-
   /* Merge the object into the extended object */
   const merge = function (obj) {
     for (const prop in obj) {

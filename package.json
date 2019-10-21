@@ -41,6 +41,7 @@
     "webpack-merge": "^4.2.2"
   },
   "dependencies": {
+    "@babel/runtime-corejs3": "^7.6.3",
     "jquery": "^3.4.1",
     "lazyload": "^2.0.0-rc.2",
     "swiper": "^5.0.3"
