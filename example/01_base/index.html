@@ -48,11 +48,9 @@
     height: 180px;
   }
   </style>
-  <link rel="stylesheet" href="../../node_modules/swiper/css/swiper.css">
-
+  <link rel="stylesheet" href="https://unpkg.com/swiper/css/swiper.min.css">
   <script src="../../dist/image-lazyload.js"></script>
-  <script src="../../node_modules/swiper/js/swiper.js"></script>
-
+  <script src="https://unpkg.com/swiper/js/swiper.min.js"> </script>
 </head>
 <body>
     <button onclick="document.getElementById('div1').style.display = 'block';document.getElementById('div2').style.display = 'none';">1111</button>
@@ -80,8 +78,6 @@
           <div><img data-src="http://tp.nty.tv189.com/image/tmpl/2019/08/21/7008262790.jpg" src="http://tp.nty.tv189.com/h5/mainsite/projects/csite/tysx/site/index/img/base/h_original.png" /></div>
       </div>
     </div>
-
-
       <!-- Swiper -->
   <div class="swiper-container">
       <div class="swiper-wrapper">
@@ -120,7 +116,6 @@ new ImageLazyload("#imgs-area img",{
   threshold: 0
 });
 
-
 var swiper = new Swiper('.swiper-container', {
       // Enable lazy loading
       // lazy: true,
@@ -138,7 +133,6 @@ var swiper = new Swiper('.swiper-container', {
   new ImageLazyload(".swiper-container img",{
     threshold: 0,
     rootMargin: "1000px",
-
   });
 </script>
 </html>

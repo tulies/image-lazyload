@@ -4,10 +4,10 @@ const path = require('path')
 // const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 
 // const merge = require('webpack-merge')
-// const isDev = process.env.NODE_ENV === 'development'
+const isDev = process.env.NODE_ENV === 'development'
 
 const config = {
-  mode: 'development', // production  development
+  mode: isDev ? 'development' : 'production', // production  development
   // watch: true,
   // watchOptions: {
   //   poll: 1000, // 监测修改的时间(ms)
