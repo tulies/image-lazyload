@@ -10,5 +10,8 @@
     ]
   ],
   "plugins": [
+    ["@babel/plugin-transform-runtime", {
+      "corejs": 3
+    }]
   ]
 }

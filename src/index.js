@@ -1,44 +1,4 @@
-/**
-    * Merge two or more objects. Returns a new object.
-    * @private
-    * @param {Boolean}  deep     If true, do a deep (or recursive) merge [optional]
-    * @param {Object}   objects  The objects to merge together
-    * @returns {Object}          Merged values of defaults and options
-    */
-// const extend = function () {
-//   const extended = {}
-//   let deep = false
-//   let i = 0
-//   const length = arguments.length
-
-//   /* Check if a deep merge */
-//   if (Object.prototype.toString.call(arguments[0]) === '[object Boolean]') {
-//     deep = arguments[0]
-//     i++
-//   }
-//   /* Merge the object into the extended object */
-//   const merge = function (obj) {
-//     for (const prop in obj) {
-//       if (Object.prototype.hasOwnProperty.call(obj, prop)) {
-//         /* If deep merge and property is an object, merge properties */
-//         if (deep && Object.prototype.toString.call(obj[prop]) === '[object Object]') {
-//           extended[prop] = extend(true, extended[prop], obj[prop])
-//         } else {
-//           extended[prop] = obj[prop]
-//         }
-//       }
-//     }
-//   }
-
-//   /* Loop through each object and conduct a merge */
-//   for (; i < length; i++) {
-//     const obj = arguments[i]
-//     merge(obj)
-//   }
-
-//   return extended
-// }
-
+import { extend } from './util'
 const defaults = {
   src: 'data-src',
   srcset: 'data-srcset',
@@ -46,7 +6,8 @@ const defaults = {
   root: null,
   rootMargin: '0px',
   threshold: 0,
-  placeholder: 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQIW2M8fPjwfwAH5ANKxO/wYQAAAABJRU5ErkJggg=='
+  placeholder: '' // 用于设置默认底图，也可以在页面标签元素的src或者background直接默认设置。
+  // placeholder: 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQIW2M8fPjwfwAH5ANKxO/wYQAAAABJRU5ErkJggg=='
 }
 export default class ImageLazyload {
   constructor (el, options) {
@@ -55,12 +16,13 @@ export default class ImageLazyload {
     } else {
       this.images = el
     }
-    // this.settings = extend(defaults, options || {})
-    this.settings = {
-      ...defaults,
-      ...(options || {})
-    }
+    // 24.9 -17.8 = 7.1k 可以节省7.1k大小
+    this.settings = extend(defaults, options || {})
 
+    // this.settings = {
+    //   ...defaults,
+    //   ...(options || {})
+    // }
     this.observer = null
     // 执行初始化
     this.init()
@@ -68,6 +30,7 @@ export default class ImageLazyload {
 
   init () {
     /* Without observers load everything and bail out early. */
+    // 如果不支持IntersectionObserver，可以自己加profill进行处理
     if (!window.IntersectionObserver) {
       this.loadImages()
       return
@@ -98,7 +61,7 @@ export default class ImageLazyload {
     }, observerConfig)
 
     this.images.forEach(image => {
-      // 设置默认图
+      // 如果传递了placeholder，则去遍历设置下默认图
       if (this.settings.placeholder) {
         if (image.tagName.toLowerCase() === 'img') {
           image.src = this.settings.placeholder
