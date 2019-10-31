@@ -1,8 +1,8 @@
 {
-  "name": "@tulies/image-lazyload",
-  "version": "2.0.1",
+  "name": "image-lazyload-tulies",
+  "version": "2.0.3",
   "description": "图片延迟加载插件",
-  "main": "index.js",
+  "main": "src/index.js",
   "scripts": {
     "dev": "cross-env NODE_ENV=development webpack --watch --progress --config build/webpack.config.js",
     "build": "cross-env NODE_ENV=production webpack --progress --config build/webpack.config.js",
@@ -12,7 +12,7 @@
     "type": "git",
     "url": "git+https://github.com/tulies/image-lazyload.git"
   },
-  "author": "",
+  "author": "tulies",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/tulies/image-lazyload/issues"
@@ -25,9 +25,7 @@
     "@babel/preset-env": "^7.6.2",
     "babel-eslint": "^10.0.3",
     "babel-loader": "^8.0.6",
-    "babel-plugin-add-module-exports": "^1.0.2",
     "clean-webpack-plugin": "^3.0.0",
-    "core-js": "^3.2.1",
     "cross-env": "^6.0.0",
     "eslint": "^6.4.0",
     "eslint-config-standard": "^14.1.0",
@@ -36,13 +34,9 @@
     "eslint-plugin-node": "^10.0.0",
     "eslint-plugin-promise": "^4.2.1",
     "eslint-plugin-standard": "^4.0.1",
-    "on-build-webpack": "^0.1.0",
     "webpack": "^4.39.2",
     "webpack-cli": "^3.3.9",
     "webpack-dev-server": "^3.8.1",
     "webpack-merge": "^4.2.2"
-  },
-  "dependencies": {
-    "@babel/runtime-corejs3": "^7.6.3"
   }
 }
