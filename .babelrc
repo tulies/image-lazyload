@@ -4,15 +4,12 @@
       "@babel/preset-env", {
         "modules": false,
         "targets": {
-          "chrome": "50",
-          "ie": "10"
-        },
-        "useBuiltIns": "usage",
-        "corejs": 3
+          "ie": "6"
+        }
+
       }
     ]
   ],
   "plugins": [
-    "@babel/plugin-syntax-dynamic-import"
   ]
 }
