@@ -1,5 +1,5 @@
 {
-  "name": "image-lazyload",
+  "name": "@tulies/image-lazyload",
   "version": "1.0.0",
   "description": "图片延迟加载插件",
   "main": "src/index.js",
