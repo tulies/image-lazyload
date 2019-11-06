@@ -1,5 +1,5 @@
 
-export function checkInView (img, threshold) {
+export function checkImgView (img, threshold) {
   const rect = img.getBoundingClientRect()
   threshold = threshold || 0
   // console.log(rect)
