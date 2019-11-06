@@ -1,4 +1,4 @@
-import Util from 'util'
+import { checkImgView } from './util'
 const inBrowser = typeof window !== 'undefined'
 
 export default class ImageLazyload {
@@ -102,7 +102,7 @@ export default class ImageLazyload {
       // }
 
       // 判断是否到达可加载区域内
-      if (Util.checkInView(img)) {
+      if (checkImgView(img, this.settings.threshold)) {
         // console.log('在显示区域里', img)
         // 随后在对应的元素上触发该事件
         this.dispatchEvent(img, event)
