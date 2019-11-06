@@ -1,4 +1,3 @@
-import Util from 'util'
 const inBrowser = typeof window !== 'undefined'
 
 export default class ImageLazyload {
@@ -102,7 +101,7 @@ export default class ImageLazyload {
       // }
 
       // 判断是否到达可加载区域内
-      if (Util.checkInView(img)) {
+      if (this.checkInView(img)) {
         // console.log('在显示区域里', img)
         // 随后在对应的元素上触发该事件
         this.dispatchEvent(img, event)
@@ -120,12 +119,10 @@ export default class ImageLazyload {
     }
   }
 
-  /*
   checkInView (img) {
     const rect = img.getBoundingClientRect()
     // console.log(rect)
     return (rect.top < (window.innerHeight + this.settings.threshold) && rect.bottom > 0) &&
       (rect.left < (window.innerWidth + this.settings.threshold) && rect.right > 0)
   }
-  */
 }
